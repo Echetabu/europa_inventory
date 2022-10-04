@@ -6,8 +6,6 @@ import { HasAccessGuard } from './pages/dashboard/guard/has-access.guard';
 const routes: Routes = [
   { 
     path: 'auth', 
-    canActivate: [IsSignedInGuard], 
-    canActivateChild: [IsSignedInGuard],
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
   },
   { 

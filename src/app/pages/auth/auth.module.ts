@@ -6,12 +6,14 @@ import { AuthComponent } from './auth.component';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/reducer/auth.reducer';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
