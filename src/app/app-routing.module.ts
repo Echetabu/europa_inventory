@@ -7,6 +7,7 @@ const routes: Routes = [
   { 
     path: 'auth', 
     canActivate: [IsSignedInGuard], 
+    canActivateChild: [IsSignedInGuard],
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
   },
   { 
