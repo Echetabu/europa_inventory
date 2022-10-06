@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/reducer/auth.reducer';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/effect/auth.effect';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
+    EffectsModule.forFeature([AuthEffects]),
     StoreModule.forFeature(authReducer)
   ]
 })
