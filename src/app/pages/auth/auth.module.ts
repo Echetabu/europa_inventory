@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effect/auth.effect';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AuthEffects } from './store/effect/auth.effect';
     CommonModule,
     AuthRoutingModule,
     EffectsModule.forFeature([AuthEffects]),
-    StoreModule.forFeature(authReducer)
+    StoreModule.forFeature(authReducer),
+    SharedModule
   ]
 })
 export class AuthModule { }

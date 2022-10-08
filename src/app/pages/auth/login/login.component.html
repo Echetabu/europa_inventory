@@ -5,23 +5,42 @@
     <div class="login-box">
         <h3>Welcome back</h3>
         <p>Sign in to continue</p>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="input-wrapper">
                 <label for="email">Email</label>
                 <div class="ibg">
-                    <input id="email" type="email" placeholder="Email Address" />
+                    <input id="email" formControlName="email" type="email" placeholder="Email Address" />
                 </div>
+                <div class="error-output" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.['required']">
+                    <span>Email Address is required</span>
+                </div>
+                <div class="error-output" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.['email']">
+                    <span>Please provide a valid email address</span>
+                </div>
+
             </div>
 
             <div class="input-wrapper">
                 <label for="email">Password</label>
                 <div class="ibg">
-                    <input id="password" type="password" placeholder="***********" />
+                    <input id="password" formControlName="password" type="password" placeholder="***********" />
+                </div>
+                <div class="error-output" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.['required']">
+                    <span>Please enter your password</span>
+                </div>
+                <div class="error-output" *ngIf="loginForm.controls.password.touched && !loginForm.controls.password.errors?.['required'] && loginForm.controls.password.errors?.['invalidPassword']">
+                    <span>Password should contain a minimum of 8 characters, 1 uppercase, 1 lowercase and a number</span>
                 </div>
             </div>
 
-            <button class="btn">Login user</button>
-          <span>Not yet a member?</span>  <a routerLink="/auth/create-account">Create Account</a>
+            <button [disabled]="loginForm.invalid" class="btn" [ngClass]="loginForm.invalid ? 'invalid' : ''" >
+                <span *ngIf="!(isLoading$ | async) ">Login</span>
+                <span *ngIf="(isLoading$ | async) ">Loading...</span>
+            </button>
+            <div class="no-account">
+                <span>Not yet a member? &nbsp;</span>  <a routerLink="/auth/create-account">Create Account</a>
+            </div>
+            
         </form>
     </div>
 </div>

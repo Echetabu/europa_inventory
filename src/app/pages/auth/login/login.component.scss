@@ -52,4 +52,20 @@
         margin-top: 2em;
         width: 100%;
     }
+
+    .btn.invalid{
+        background: #b064bf;
+        cursor:not-allowed;
+    }
+    .no-account{
+        margin-top: 0.5em;
+        text-align: center;
+    }
+
+    .error-output{
+        span{
+            color: red;
+            font-size: .6rem;
+        }
+    }
 }

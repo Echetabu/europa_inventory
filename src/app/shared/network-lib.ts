@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class NetworkLibService {
 
-  private BASE_URL = "https://novaepay.herokuapp.com/v1/"
+  private BASE_URL = "https://authbackendnovate.herokuapp.com/v1/"
 
   constructor(private readonly http: HttpClient) { }
 

@@ -9,14 +9,14 @@ export class HasAccessGuard implements CanActivate, CanLoad {
   constructor(private readonly router: Router) {}
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     return isLoggedIn;
   }
   
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     if(isLoggedIn){
       return true;
     }else{
